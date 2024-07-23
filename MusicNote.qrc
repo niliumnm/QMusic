@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/note"/>
+    <qresource prefix="/">
+        <file>res/NotePic/++1.jpg</file>
+        <file>res/NotePic/++2.jpg</file>
+        <file>res/NotePic/++3.jpg</file>
+        <file>res/NotePic/+1.jpg</file>
+        <file>res/NotePic/+2.jpg</file>
+        <file>res/NotePic/+3.jpg</file>
+        <file>res/NotePic/+4.jpg</file>
+        <file>res/NotePic/+5.jpg</file>
+        <file>res/NotePic/+6.jpg</file>
+        <file>res/NotePic/+7.jpg</file>
+        <file>res/NotePic/1.jpg</file>
+        <file>res/NotePic/2.jpg</file>
+        <file>res/NotePic/3.jpg</file>
+        <file>res/NotePic/4.jpg</file>
+        <file>res/NotePic/-4.jpg</file>
+        <file>res/NotePic/5.jpg</file>
+        <file>res/NotePic/-5.jpg</file>
+        <file>res/NotePic/6.jpg</file>
+        <file>res/NotePic/-6.jpg</file>
+        <file>res/NotePic/7.jpg</file>
+        <file>res/NotePic/-7.jpg</file>
+    </qresource>
+</RCC>
