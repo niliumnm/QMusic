@@ -80,7 +80,7 @@ void MainWindow::handleMidiEvent(quint32 message, quint32 timing)
     event.setMessage(message);
     ui->infoEdit->appendPlainText(QString::number(message));
 
-    if(event.type()==0){
+    if(event.type()==0&&event.velocity()>0){
         record.m_tryCount++;
         qDebug() << "received event" << event.type()
                  << "note:" << event.note()
@@ -89,12 +89,12 @@ void MainWindow::handleMidiEvent(quint32 message, quint32 timing)
                  <<"number: "<<event.number()
                  <<"value: "<<event.value()
                  << " " << message;
-        qDebug()<<"尝试第"<<record.m_tryCount<<"次 用时"<< record.m_time.elapsed()/1000.0 <<"秒";
         if(pracStatus.isStart&&!(pracStatus.curNote.isEmpty())){
             QString wantNote=pracStatus.curNote; //+1 -1
             QString receivedNoteStr=NoteMap[event.note()];
             qDebug()<<"等待Note: "<<wantNote<<" 收到"<<event.note()<<"-"<<receivedNoteStr;
-            if(event.type()==0&&wantNote==receivedNoteStr&&event.velocity()!=0){
+            qDebug()<<"尝试第"<<record.m_tryCount<<"次 用时"<< record.m_time.elapsed()/1000.0 <<"秒";
+            if(event.type()==0&&wantNote==receivedNoteStr&&event.velocity()!=0){ //吹对
                 emit handleContinuePractice();
             }
         }
@@ -145,7 +145,7 @@ void MainWindow::handleContinuePractice()
     pracStatus.curCount++;
     if(pracStatus.curCount>pracStatus.totalCount){
         double sec=record.m_time.elapsed()/1000.0;
-        double rate=(pracStatus.totalCount/record.m_tryCount)/2;
+        double rate=pracStatus.totalCount/record.m_tryCount;
         QString infoStr="您本次用时 "+QString::number(sec)+" 正确率: "+QString::number(rate);
         pracStatus.isStart=false;
         QMessageBox::information(this,"练习结束",infoStr);
@@ -187,5 +187,15 @@ void MainWindow::on_startBtn_clicked()
     emit startPractice(ui->numEdit->text().toInt());
     record.m_tryCount=0;
     record.m_time.start();
+}
+
+
+void MainWindow::on_btnHint_clicked()
+{
+    QString simpNoteStr=pracStatus.curNote;
+    int noteValue = revNoteMap[simpNoteStr];
+    QString staffNote=revStaffNoteMap[noteValue];
+
+    ui->infoEdit->appendPlainText("当前音符 "+staffNote);
 }
 

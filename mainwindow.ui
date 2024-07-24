@@ -46,6 +46,13 @@
            </property>
           </widget>
          </item>
+         <item>
+          <widget class="QPushButton" name="btnHint">
+           <property name="text">
+            <string>提示</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
       </item>
