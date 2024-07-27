@@ -113,7 +113,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPlainTextEdit" name="infoEdit">
+        <widget class="QTextEdit" name="infoEdit">
          <property name="maximumSize">
           <size>
            <width>16777215</width>

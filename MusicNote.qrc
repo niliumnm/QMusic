@@ -1,6 +1,5 @@
 <RCC>
-    <qresource prefix="/note"/>
-    <qresource prefix="/">
+    <qresource prefix="/note">
         <file>res/NotePic/++1.jpg</file>
         <file>res/NotePic/++2.jpg</file>
         <file>res/NotePic/++3.jpg</file>
@@ -22,5 +21,43 @@
         <file>res/NotePic/-6.jpg</file>
         <file>res/NotePic/7.jpg</file>
         <file>res/NotePic/-7.jpg</file>
+    </qresource>
+    <qresource prefix="/voice">
+        <file>res/voice/A2.wav</file>
+        <file>res/voice/A3.wav</file>
+        <file>res/voice/A4.wav</file>
+        <file>res/voice/A5.wav</file>
+        <file>res/voice/A6.wav</file>
+        <file>res/voice/B2.wav</file>
+        <file>res/voice/B3.wav</file>
+        <file>res/voice/B4.wav</file>
+        <file>res/voice/B5.wav</file>
+        <file>res/voice/B6.wav</file>
+        <file>res/voice/C2.wav</file>
+        <file>res/voice/C3.wav</file>
+        <file>res/voice/C4.wav</file>
+        <file>res/voice/C5.wav</file>
+        <file>res/voice/C6.wav</file>
+        <file>res/voice/D2.wav</file>
+        <file>res/voice/D3.wav</file>
+        <file>res/voice/D4.wav</file>
+        <file>res/voice/D5.wav</file>
+        <file>res/voice/D6.wav</file>
+        <file>res/voice/E2.wav</file>
+        <file>res/voice/E3.wav</file>
+        <file>res/voice/E4.wav</file>
+        <file>res/voice/E5.wav</file>
+        <file>res/voice/E6.wav</file>
+        <file>res/voice/F2.wav</file>
+        <file>res/voice/F3.wav</file>
+        <file>res/voice/F4.wav</file>
+        <file>res/voice/F5.wav</file>
+        <file>res/voice/F6.wav</file>
+        <file>res/voice/G2.wav</file>
+        <file>res/voice/G3.wav</file>
+        <file>res/voice/G4.wav</file>
+        <file>res/voice/G5.wav</file>
+        <file>res/voice/G6.wav</file>
+        <file>res/voice/Voice.qrc</file>
     </qresource>
 </RCC>

@@ -1,0 +1,40 @@
+<RCC>
+    <qresource prefix="/res/voice">
+        <file>A2.wav</file>
+        <file>A3.wav</file>
+        <file>A4.wav</file>
+        <file>A5.wav</file>
+        <file>A6.wav</file>
+        <file>B2.wav</file>
+        <file>B3.wav</file>
+        <file>B4.wav</file>
+        <file>B5.wav</file>
+        <file>B6.wav</file>
+        <file>C2.wav</file>
+        <file>C3.wav</file>
+        <file>C4.wav</file>
+        <file>C5.wav</file>
+        <file>C6.wav</file>
+        <file>D2.wav</file>
+        <file>D3.wav</file>
+        <file>D4.wav</file>
+        <file>D5.wav</file>
+        <file>D6.wav</file>
+        <file>E2.wav</file>
+        <file>E3.wav</file>
+        <file>E4.wav</file>
+        <file>E5.wav</file>
+        <file>E6.wav</file>
+        <file>F2.wav</file>
+        <file>F3.wav</file>
+        <file>F4.wav</file>
+        <file>F5.wav</file>
+        <file>F6.wav</file>
+        <file>G2.wav</file>
+        <file>G3.wav</file>
+        <file>G4.wav</file>
+        <file>G5.wav</file>
+        <file>G6.wav</file>
+        <file>Voice.qrc</file>
+    </qresource>
+</RCC>

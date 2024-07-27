@@ -1,0 +1,41 @@
+ipv6 禁用
+
+tskey-auth-khBYQhhXuF11CNTRL-MhmLJrPMZjetxiuaaxcUjeV5LMxXtyxN7
+using 1D64NoteTimeMs 15.625
+using 1D32NoteTimeMs 31.25
+using 1D16NoteTimeMs=62.5
+
+using 1D8NoteTimeMs=125
+using 1D4NoteTimeMs=250
+using 1D2NoteTimeMs=500
+using 1D1NoteTimeMs=1000
+
+
+startTimer(Qt::PreciseTimer)
+
+using struct Node{
+	QString Duration;
+	QString value;
+
+}
+
+QDateTime  totalTime=0;
+QElapsedTimer timeElapsed;
+timeElapsed.start;
+for (note:Notes){
+	
+	if(note.duration=="64){
+		QDateTime += 1D64NoteTimeMs
+	}
+	while(1){
+		if(timeElapsed==QDateTime) {
+			dispNote();
+			break;
+		}
+	}
+
+}
+
+dispNote(Note note){
+	
+}

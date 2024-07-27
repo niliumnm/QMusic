@@ -1,0 +1,79 @@
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  3   199600
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  3   197296
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  7   461744
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  7   459440
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  13   854960
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  13   852656
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  19   1248176
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  19   1245872
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  25   1641392
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  25   1639088
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  31   2034608
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  31   2032304
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  39   2558896
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  39   2556592
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  47   3083184
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  47   3080880
+received event 0 note: 72 velocity: 51 amount:  -1 number:  -1 value:  -1   3360912
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  55   3607472
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  55   3605168
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  64   4197296
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  64   4194992
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  73   4787120
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  73   4784816
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  83   5442480
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  83   5440176
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  91   5966768
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  91   5964464
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  101   6622128
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  101   6619824
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  111   7277488
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  111   7275184
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  121   7932848
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  121   7930544
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  127   8326064
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  127   8323760
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  126   8260528
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  126   8258224
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  113   7408560
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  113   7406256
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  101   6622128
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  101   6619824
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  87   5704624
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  87   5702320
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  75   4918192
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  75   4915888
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  62   4066224
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  62   4063920
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  48   3148720
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  48   3146416
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  38   2493360
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  38   2491056
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  26   1706928
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  26   1704624
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  16   1051568
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  16   1049264
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  6   396208
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  6   393904
+received event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  0   2992
+received event 4 note: -1 velocity: -1 amount:  -1 number:  2 value:  0   688
+received event 0 note: 72 velocity: 0 amount:  -1 number:  -1 value:  -1   18576
+
+60 中央C 1
+62 2
+64 3
+65 4
+
+67 5
+69 6
+71 7
+
+72  [1]
+
+84  [[1]]
+
+if  received event 0 note: 72 velocity: 51
+	receive =true;
+	if event 4 note: -1 velocity: -1 amount:  -1 number:  11 value:  111   
+
+

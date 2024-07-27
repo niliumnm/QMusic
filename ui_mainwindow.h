@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 6.2.4
+** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -19,9 +19,9 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -38,6 +38,7 @@ public:
     QVBoxLayout *verticalLayout;
     QLineEdit *numEdit;
     QPushButton *startBtn;
+    QPushButton *btnHint;
     QFrame *frame;
     QHBoxLayout *horizontalLayout_2;
     QGroupBox *groupBox;
@@ -45,7 +46,7 @@ public:
     QComboBox *deviceComb;
     QPushButton *resreshBtn;
     QPushButton *connBtn;
-    QPlainTextEdit *infoEdit;
+    QTextEdit *infoEdit;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -79,6 +80,11 @@ public:
         startBtn->setObjectName(QString::fromUtf8("startBtn"));
 
         verticalLayout->addWidget(startBtn);
+
+        btnHint = new QPushButton(groupBox_2);
+        btnHint->setObjectName(QString::fromUtf8("btnHint"));
+
+        verticalLayout->addWidget(btnHint);
 
 
         horizontalLayout_3->addWidget(groupBox_2);
@@ -117,7 +123,7 @@ public:
 
         horizontalLayout_2->addWidget(groupBox);
 
-        infoEdit = new QPlainTextEdit(frame);
+        infoEdit = new QTextEdit(frame);
         infoEdit->setObjectName(QString::fromUtf8("infoEdit"));
         infoEdit->setMaximumSize(QSize(16777215, 100));
 
@@ -146,6 +152,7 @@ public:
         groupBox_2->setTitle(QCoreApplication::translate("MainWindow", "\347\273\203\344\271\240", nullptr));
         numEdit->setText(QCoreApplication::translate("MainWindow", "32", nullptr));
         startBtn->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\247\213", nullptr));
+        btnHint->setText(QCoreApplication::translate("MainWindow", "\346\217\220\347\244\272", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "\350\256\276\345\244\207", nullptr));
         resreshBtn->setText(QCoreApplication::translate("MainWindow", "\345\210\267\346\226\260", nullptr));
         connBtn->setText(QCoreApplication::translate("MainWindow", "\350\277\236\346\216\245", nullptr));

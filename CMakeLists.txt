@@ -38,7 +38,7 @@ else()
     else()
         add_executable(QMusic
             ${PROJECT_SOURCES}
-        )
+         "define/NoteDef.h")
     endif()
 endif()
 
