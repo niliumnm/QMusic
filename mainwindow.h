@@ -10,6 +10,7 @@
 #include <QProgressBar>
 #include <qlabel.h>
 #include <define/NoteDef.h>
+#include <QDebug>
 // 增加曲线图 TODO https://zhuangzuoyi.github.io/using-Qt-Charts/02/
 
 struct RecordRank{
@@ -26,6 +27,88 @@ struct PracticeStatus
     int perfectCount = 0;
     bool perfact = true;
     PracticeStatus() {}
+};
+//音符的定义
+struct Node {
+    int value = -1;
+    int duration = -1;
+    Node* next=nullptr;
+    Node() {
+
+    };
+    Node(QString strNote) {
+        if (staffNoteMap.contains(strNote)) {
+            //是五线谱的内容
+            value = staffNoteMap[strNote];
+        }
+        else if (revNoteMap.contains(strNote)) {
+            value = revNoteMap[strNote];
+        }
+        else {
+            qDebug() << "Wrong Note!!!";
+        }
+    }
+    void setDuration(QString time) {
+        duration = time.toInt();
+    }
+};
+
+struct Sheet {
+    QString name;
+    QString author;
+    QString title;
+    int count = 0;
+    Node* dummyHead=new Node;
+    Node* tail = nullptr;
+    void insert(Node* node) {
+        if (count==0) {
+            dummyHead->next = node;
+            tail = node;
+        }
+        else {
+            tail->next = node;
+            tail = tail->next;
+        }
+        count++;
+    }
+    void deleteHead() {
+        if (count == 0) return;
+        Node* tobeDel = dummyHead->next;
+        dummyHead = dummyHead->next;
+        delete tobeDel;
+    };
+    bool isValid() {
+        if (dummyHead != nullptr && dummyHead->next != nullptr && count > 0) {
+            return true;
+        }
+        return false;
+    }
+    bool isEmpty() {
+        return count == 0;
+    }
+    void outputValue() {
+        Node* cur = dummyHead;
+        int cnt = 0;
+        while (cur->next)
+        {
+            cur = cur->next;
+            qDebug() << "note: " << cur->value << "("+ revStaffNoteMap[cur->value] + ") " << cur->duration << "\n";
+            cnt++;
+        }
+        assert(cnt == count);
+    }
+    ~Sheet()
+    {
+        // 遍历链表,逐个释放节点内存
+        while (dummyHead != nullptr) {
+            Node* temp = dummyHead;
+            dummyHead = dummyHead->next;
+            delete temp;
+        }
+
+        // 将链表头指针设置为 nullptr
+        dummyHead = nullptr;
+    }
 };
 
 QT_BEGIN_NAMESPACE
@@ -53,6 +136,10 @@ private slots:
     void on_startBtn_clicked();
     void on_btnHint_clicked();
 
+    void on_btnOpenFile_clicked();
+
+    void on_btnStartPlay_clicked();
+
 public slots:
     void handleMidiEvent(quint32 message, quint32 timing);
     void onDrawNote(QString noteNumber);
@@ -60,6 +147,7 @@ public slots:
     void handleContinuePractice();
     void handleStartTimer(double sec);
     void handlePlayNote(QString noteStr);
+    void handleStartPlaySheetPractice();
 
 private:
     void initSlot();
@@ -76,7 +164,8 @@ private:
     RecordRank record;
     QTimer * timer = nullptr;
     QProgressBar* progBar = nullptr;
-    QLabel* progLab = nullptr;    
+    QLabel* progLab = nullptr;
+    Sheet sheet;
 
 protected:
     void closeEvent(QCloseEvent *event) override;
@@ -87,5 +176,6 @@ signals:
     void continuePractice();
     void startTimer(double sec);
     void playNoteSound(QString note);
+    void startPlaySheetPractice();
 };
 #endif // MAINWINDOW_H

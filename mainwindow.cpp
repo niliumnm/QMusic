@@ -15,6 +15,12 @@
 #include <QTimer>
 #include <QProgressBar>
 #include <QSound>
+#include <qfile.h>
+#include <qtextstream.h>
+#include <qfiledialog.h>
+#include <QDateTime>
+#include <define/NoteDef.h>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -222,6 +228,60 @@ void MainWindow::handlePlayNote(QString noteStr)
     QSound::play(wavName);
 }
 
+void MainWindow::handleStartPlaySheetPractice()
+{
+    if (!sheet.isValid()) {
+        QMessageBox::warning(this, "无数据", "请先打开文件");
+    }
+
+    qint64  totalTime =0; //应该播放的时间
+    QElapsedTimer timeElapsed;
+    timeElapsed.start();
+    Node* curNote = sheet.dummyHead;
+    while (!sheet.isEmpty())
+    {
+         //TODO: 播放音符
+        curNote = curNote->next;
+        switch (curNote->duration)
+        {
+            case(1) :{
+                totalTime += Time1D1NoteMs;
+                break;
+            }case(2):{
+                totalTime += Tim1D2NoteeMs;
+                break;
+            }case(4): {
+                totalTime += Time1D4NoteMs;
+                break;
+            }case(8): {
+                totalTime += Tim1D8NoteeMs;
+                break;
+            }case(16): {
+                totalTime += Time1D16NoteMs;
+                break;
+            }case(32): {
+                totalTime += Time1D32NoteMs;
+                break;
+            }case(64): {
+                totalTime += Time1D64NoteMs;
+                break;
+            }
+            default: {
+                qDebug() << "Unkonw Note";
+                break;
+            }
+        }
+         while (1) {
+            if (timeElapsed.elapsed() == totalTime) {
+                //dispNote();
+                emit drawNote(QString::number(curNote->value));
+                sheet.deleteHead();
+                break;
+            }
+         }
+    }
+}
+
 void MainWindow::initSlot()
 {
     connect(&m_midiIn, &QMidiIn::midiEvent, this, &MainWindow::handleMidiEvent);
@@ -270,5 +330,79 @@ void MainWindow::on_btnHint_clicked()
     QString staffNote=revStaffNoteMap[noteValue];
 
     ui->infoEdit->append("当前音符 "+staffNote);
+}
+
+
+void MainWindow::on_btnOpenFile_clicked()
+{
+    // 弹出文件选择对话框,要求选择后缀名为 .txt 的文件
+    QString fileName = QFileDialog::getOpenFileName(
+        nullptr,
+        "打开乐谱文件",
+        QDir::homePath(),
+        "Text Files (*.txt)");
+
+    if (!fileName.isEmpty()) {
+        // 打开选定的文件
+        QFile file(fileName);
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            // 读取文件内容
+            QTextStream in(&file);
+            while (!in.atEnd()) {
+                QString line = in.readLine();
+                if (line.startsWith("@")) {
+                    int colonIndex = line.indexOf(':');
+                    QStringList param = line.split("");
+                    if (param[0] == "@Author") {
+                        sheet.author = param[1];
+                    }
+                    else if (param[0] == "@Title") {
+                        sheet.title = param[1];
+                    }
+                    else if (param[0] == "@Name") {
+                        sheet.name = param[1];
+                    }
+                    else if (param[0] == "@Body") {
+                        //读取音符 C4:D4:E4:F4:G4:A4:B4
+                        QString bodyLine = in.readLine();
+                        QStringList notes = bodyLine.split(":");
+                        //读取时值 16:32:4:1:2:4:8
+                        QString timeLine = in.readLine();
+                        QStringList times = bodyLine.split(":");
+                        if (bodyLine.isEmpty() || timeLine.isEmpty()) {
+                            continue;
+                        }
+
+                        assert(notes.size() == times.size());
+                        for (int i = 0; i < notes.size();i++) {
+                            if (notes[i].isEmpty()||times[i].isEmpty()) {
+                                continue;
+                            }
+
+                            Node* newNode;
+                            newNode = new Node(notes[i]);
+                            newNode->setDuration(times[i]);
+                            sheet.insert(newNode);
+                        }
+                    }
+                }
+                else {
+                    continue;
+                }
+                
+            }
+            file.close();
+        } else {
+            qDebug() << "Failed to open file:" << fileName;
+        }
+    } else {
+        ui->infoEdit->append("No file selected");
+    }
+}
+
+
+void MainWindow::on_btnStartPlay_clicked()
+{
+    emit startPlaySheetPractice();
 }
 
