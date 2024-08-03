@@ -41,11 +41,11 @@
   <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <QtInstall>5.15.2_msvc2019_64</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtModules>core;network;gui;multimedia;widgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <QtInstall>5.15.2_msvc2019_64</QtInstall>
-    <QtModules>core;gui;multimedia;widgets</QtModules>
+    <QtModules>core;network;gui;multimedia;widgets</QtModules>
   </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">
     <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
@@ -70,13 +70,6 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">QMusic</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ExecutablePath>$(QTDIR)\bin;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>$(QTDIR)\include;$(QTDIR)\src;$(IncludePath)</IncludePath>
-    <ReferencePath>$(QTDIR)\lib;$(ReferencePath)</ReferencePath>
-    <LibraryPath>$(QTDIR)\lib;$(LibraryPath)</LibraryPath>
-    <SourcePath>$(QTDIR)\src;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -211,12 +204,15 @@
     <ClCompile Include="qMidi\OS\QMidi_Win32.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
+    <ClCompile Include="Utils\noteshifter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="define\NoteDef.h" />
     <ClInclude Include="qMidi\QMidiFile.h" />
     <QtMoc Include="qMidi\QMidiIn.h" />
     <ClInclude Include="qMidi\QMidiOut.h" />
     <QtMoc Include="mainwindow.h" />
+    <ClInclude Include="Utils\noteshifter.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">
@@ -259,7 +255,57 @@
     <None Include="res\NotePic\5.jpg" />
     <None Include="res\NotePic\6.jpg" />
     <None Include="res\NotePic\7.jpg" />
+    <None Include="res\voice\A2.wav" />
+    <None Include="res\voice\A3.wav" />
+    <None Include="res\voice\A4.wav" />
+    <None Include="res\voice\A5.wav" />
+    <None Include="res\voice\A6.wav" />
+    <None Include="res\voice\B2.wav" />
+    <None Include="res\voice\B3.wav" />
+    <None Include="res\voice\B4.wav" />
+    <None Include="res\voice\B5.wav" />
+    <None Include="res\voice\B6.wav" />
+    <None Include="res\voice\C2.wav" />
+    <None Include="res\voice\C3.wav" />
+    <None Include="res\voice\C4.wav" />
+    <None Include="res\voice\C5.wav" />
+    <None Include="res\voice\C6.wav" />
+    <None Include="res\voice\D2.wav" />
+    <None Include="res\voice\D3.wav" />
+    <None Include="res\voice\D4.wav" />
+    <None Include="res\voice\D5.wav" />
+    <None Include="res\voice\D6.wav" />
+    <None Include="res\voice\E2.wav" />
+    <None Include="res\voice\E3.wav" />
+    <None Include="res\voice\E4.wav" />
+    <None Include="res\voice\E5.wav" />
+    <None Include="res\voice\E6.wav" />
+    <None Include="res\voice\F2.wav" />
+    <None Include="res\voice\F3.wav" />
+    <None Include="res\voice\F4.wav" />
+    <None Include="res\voice\F5.wav" />
+    <None Include="res\voice\F6.wav" />
+    <None Include="res\voice\G2.wav" />
+    <None Include="res\voice\G3.wav" />
+    <None Include="res\voice\G4.wav" />
+    <None Include="res\voice\G5.wav" />
+    <None Include="res\voice\G6.wav" />
     <QtRcc Include="MusicNote.qrc" />
+    <None Include="res\voice\Voice.qrc" />
+    <None Include="res\TunePic\tune_A.jpg" />
+    <None Include="res\TunePic\tune_Ab.jpg" />
+    <None Include="res\TunePic\tune_B.jpg" />
+    <None Include="res\TunePic\tune_Bb.jpg" />
+    <None Include="res\TunePic\tune_C#.jpg" />
+    <None Include="res\TunePic\tune_Cb.jpg" />
+    <None Include="res\TunePic\tune_D.jpg" />
+    <None Include="res\TunePic\tune_Db.jpg" />
+    <None Include="res\TunePic\tune_E.jpg" />
+    <None Include="res\TunePic\tune_Eb.jpg" />
+    <None Include="res\TunePic\tune_F#.jpg" />
+    <None Include="res\TunePic\tune_F.jpg" />
+    <None Include="res\TunePic\tune_G.jpg" />
+    <None Include="res\TunePic\tune_Gb.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />

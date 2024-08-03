@@ -21,6 +21,21 @@
         <file>res/NotePic/-6.jpg</file>
         <file>res/NotePic/7.jpg</file>
         <file>res/NotePic/-7.jpg</file>
+        <file>res/TunePic/tune_A.jpg</file>
+        <file>res/TunePic/tune_Ab.jpg</file>
+        <file>res/TunePic/tune_B.jpg</file>
+        <file>res/TunePic/tune_Bb.jpg</file>
+        <file>res/TunePic/tune_C#.jpg</file>
+        <file>res/TunePic/tune_Cb.jpg</file>
+        <file>res/TunePic/tune_D.jpg</file>
+        <file>res/TunePic/tune_Db.jpg</file>
+        <file>res/TunePic/tune_E.jpg</file>
+        <file>res/TunePic/tune_Eb.jpg</file>
+        <file>res/TunePic/tune_F#.jpg</file>
+        <file>res/TunePic/tune_F.jpg</file>
+        <file>res/TunePic/tune_G.jpg</file>
+        <file>res/TunePic/tune_Gb.jpg</file>
+        <file>res/TunePic/tune_C.jpg</file>
     </qresource>
     <qresource prefix="/voice">
         <file>res/voice/A2.wav</file>
@@ -60,4 +75,5 @@
         <file>res/voice/G6.wav</file>
         <file>res/voice/Voice.qrc</file>
     </qresource>
+    <qresource prefix="/tune"/>
 </RCC>

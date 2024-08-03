@@ -14,94 +14,90 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_2">
-    <item row="0" column="0">
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0" rowspan="2">
-       <widget class="QGraphicsView" name="noteGraphView"/>
-      </item>
-      <item row="0" column="1">
-       <widget class="QGroupBox" name="groupBox_2">
-        <property name="maximumSize">
-         <size>
-          <width>100</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="title">
-         <string>练习</string>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout">
-         <item>
-          <widget class="QLineEdit" name="numEdit">
-           <property name="text">
-            <string>32</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="startBtn">
-           <property name="text">
-            <string>开始</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnHint">
-           <property name="text">
-            <string>提示</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QGroupBox" name="groupBox_3">
-        <property name="maximumSize">
-         <size>
-          <width>100</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="title">
-         <string>演奏</string>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <widget class="QLabel" name="labFileName">
-           <property name="text">
-            <string>无文件</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnOpenFile">
-           <property name="text">
-            <string>打开</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnStartPlay">
-           <property name="text">
-            <string>开始</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnStopPlay">
-           <property name="text">
-            <string>停止</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-     </layout>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="1">
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>演奏</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="labFileName">
+         <property name="text">
+          <string>无文件</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnOpenFile">
+         <property name="text">
+          <string>打开</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnStartPlay">
+         <property name="text">
+          <string>开始</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnStopPlay">
+         <property name="text">
+          <string>停止</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </item>
-    <item row="1" column="0">
+    <item row="0" column="1">
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>练习</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLineEdit" name="numEdit">
+         <property name="text">
+          <string>32</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="startBtn">
+         <property name="text">
+          <string>开始</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnHint">
+         <property name="text">
+          <string>提示</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="0" rowspan="3">
+     <widget class="QGraphicsView" name="noteGraphView"/>
+    </item>
+    <item row="3" column="0" colspan="2">
      <widget class="QFrame" name="frame">
       <property name="maximumSize">
        <size>
@@ -166,6 +162,91 @@
         </widget>
        </item>
       </layout>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QComboBox" name="tuneComb">
+      <property name="minimumSize">
+       <size>
+        <width>30</width>
+        <height>0</height>
+       </size>
+      </property>
+      <item>
+       <property name="text">
+        <string>C#大调|a#小调</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>F#大调|d#小调</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>B大调|g#小调</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>E大调|c#小调</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>A大调|f#小调</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>D大调|b小调</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>G大调|e小调</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C大调</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>F大调|d小调</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bb大调|g小调</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Eb大调|c小调</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ab大调|f小调</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Db大调|bb小调</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Gb大调|eb小调</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Cb大调|ab小调</string>
+       </property>
+      </item>
      </widget>
     </item>
    </layout>

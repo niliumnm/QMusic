@@ -11,10 +11,12 @@ CONFIG += c++17
 include(qMidi/QMidi.pri)
 
 SOURCES += \
+    Utils/noteshifter.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    Utils/noteshifter.h \
     mainwindow.h \
     define/NoteDef.h
 

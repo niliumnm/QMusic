@@ -11,6 +11,9 @@
 #include <qlabel.h>
 #include <define/NoteDef.h>
 #include <QDebug>
+#include <qvector.h>
+#include <QGraphicsScene>
+
 // 增加曲线图 TODO https://zhuangzuoyi.github.io/using-Qt-Charts/02/
 
 struct RecordRank{
@@ -135,14 +138,14 @@ private slots:
     void on_connBtn_clicked();
     void on_startBtn_clicked();
     void on_btnHint_clicked();
-
     void on_btnOpenFile_clicked();
-
     void on_btnStartPlay_clicked();
+    void on_tuneComb_currentIndexChanged(int index);
 
 public slots:
     void handleMidiEvent(quint32 message, quint32 timing);
     void onDrawNote(QString noteNumber);
+    void onDrawTune(QString tuneStr);
     void onStartPractice(int num);
     void handleContinuePractice();
     void handleStartTimer(double sec);
@@ -152,6 +155,7 @@ public slots:
 private:
     void initSlot();
     void initUI();
+    inline bool isSame(QString strA, QString strB);
 
 private:
     Ui::MainWindow *ui;
@@ -166,12 +170,17 @@ private:
     QProgressBar* progBar = nullptr;
     QLabel* progLab = nullptr;
     Sheet sheet;
+    QVector<int>noteShift={0,0,-1,0,0,0,-1};
+    QGraphicsScene *scene;
+    QGraphicsItem* notePicItem = nullptr;
+    QGraphicsItem* tunePicItem = nullptr;
 
 protected:
     void closeEvent(QCloseEvent *event) override;
 
 signals:
     void drawNote(QString noteNumber);
+    void drawTune(QString tuneStr);
     void startPractice(int count);
     void continuePractice();
     void startTimer(double sec);
