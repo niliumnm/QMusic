@@ -42,10 +42,10 @@ static QMap<int, QString>revStaffNoteMap = {
     {84,"C6"},{86,"D6"},{88,"E6"},{89,"F6"},{91,"G6"},{93,"A6"},{95,"B6"}
 };
 
-const int Time1D64NoteMs = 15.625;
-const int Time1D32NoteMs = 31.25;
-const int Time1D16NoteMs = 62.5;
-const int Tim1D8NoteeMs = 125;
-const int Time1D4NoteMs = 250;
-const int Tim1D2NoteeMs = 500;
-const int Time1D1NoteMs = 1000;
+const double Time1D64NoteMs = 15.625;
+const double Time1D32NoteMs = 31.25;
+const double Time1D16NoteMs = 62.5;
+const double Tim1D8NoteeMs = 125;
+const double Time1D4NoteMs = 250;
+const double Tim1D2NoteeMs = 500;
+const double Time1D1NoteMs = 1000;

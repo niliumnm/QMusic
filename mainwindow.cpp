@@ -34,6 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
     initUI();
     on_resreshBtn_clicked();
     on_connBtn_clicked();
+    shift["Bb"]={0,0,-1,0,0,0,-1};
 }
 
 MainWindow::~MainWindow()
@@ -232,6 +233,7 @@ void MainWindow::handleStartPlaySheetPractice()
 {
     if (!sheet.isValid()) {
         QMessageBox::warning(this, "无数据", "请先打开文件");
+        on_btnOpenFile_clicked();
     }
 
     qint64  totalTime =0; //应该播放的时间
@@ -245,41 +247,55 @@ void MainWindow::handleStartPlaySheetPractice()
         switch (curNote->duration)
         {
             case(1) :{
-                totalTime += Time1D1NoteMs;
+                totalTime += static_cast<int>(Time1D1NoteMs);
                 break;
-            }case(2):{
-                totalTime += Tim1D2NoteeMs;
+            }
+            case(2):{
+                totalTime += static_cast<int>(Tim1D2NoteeMs);
                 break;
-            }case(4): {
-                totalTime += Time1D4NoteMs;
+            }
+            case(4): {
+                totalTime += static_cast<int>(Time1D4NoteMs);
                 break;
-            }case(8): {
-                totalTime += Tim1D8NoteeMs;
+            }
+            case(8): {
+                totalTime += static_cast<int>(Tim1D8NoteeMs);
                 break;
-            }case(16): {
-                totalTime += Time1D16NoteMs;
+            }
+            case(16): {
+                totalTime += static_cast<int>(Time1D16NoteMs);
                 break;
-            }case(32): {
-                totalTime += Time1D32NoteMs;
+            }
+            case(32): {
+                totalTime += static_cast<int>(Time1D32NoteMs);
                 break;
-            }case(64): {
-                totalTime += Time1D64NoteMs;
+            }
+            case(64): {
+                totalTime += static_cast<int>(Time1D64NoteMs);
                 break;
             }
             default: {
                 qDebug() << "Unkonw Note";
-                break;
+                Q_ASSERT(false);
             }
+
+        };
+
+        while (1) {
+           if (timeElapsed.elapsed() >= totalTime) {
+               //dispNote();
+               emit drawNote(QString::number(curNote->value));
+               if(curNote->next){
+                   prevNote(curNote->next);
+                   sheet.deleteHead();
+                   break;
+               }
+           }
         }
-         while (1) {
-            if (timeElapsed.elapsed() == totalTime) {
-                //dispNote();
-                emit drawNote(QString::number(curNote->value));
-                sheet.deleteHead();
-                break;
-            }
-         }
     }
+
+    QMessageBox::information(this,"提示","练习结束");
+
 }
 
 void MainWindow::initSlot()
@@ -302,6 +318,13 @@ void MainWindow::initUI()
     progLab->hide();
     progBar->setRange(0, 50);
     progBar->setValue(50);
+}
+
+void MainWindow::prevNote(Node* note)
+{
+    // tune: Bb note: C
+    Node
+
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
@@ -350,27 +373,35 @@ void MainWindow::on_btnOpenFile_clicked()
             QTextStream in(&file);
             while (!in.atEnd()) {
                 QString line = in.readLine();
+                if(line.isEmpty()){
+                    continue;
+                }
                 if (line.startsWith("@")) {
-                    int colonIndex = line.indexOf(':');
-                    QStringList param = line.split("");
+                    QStringList param = line.split(":");
                     if (param[0] == "@Author") {
                         sheet.author = param[1];
                     }
                     else if (param[0] == "@Title") {
+                        assert(param.size()==2);
                         sheet.title = param[1];
                     }
                     else if (param[0] == "@Name") {
+                        assert(param.size()==2);
                         sheet.name = param[1];
                     }
+                    else if (param[0] == "@Tune") {
+                        assert(param.size()==2);
+                        sheet.tune = param[1];
+                    }
                     else if (param[0] == "@Body") {
-                        //读取音符 C4:D4:E4:F4:G4:A4:B4
+                        //读取音符 C4:D4:E4:F4:G4:A4:B4:--
                         QString bodyLine = in.readLine();
                         QStringList notes = bodyLine.split(":");
                         //读取时值 16:32:4:1:2:4:8
                         QString timeLine = in.readLine();
                         QStringList times = bodyLine.split(":");
                         if (bodyLine.isEmpty() || timeLine.isEmpty()) {
-                            continue;
+                            assert(false);
                         }
 
                         assert(notes.size() == times.size());
@@ -385,6 +416,10 @@ void MainWindow::on_btnOpenFile_clicked()
                             sheet.insert(newNode);
                         }
                     }
+                }
+                else if(line.startsWith("#")){
+                    // 注释
+                    continue;
                 }
                 else {
                     continue;

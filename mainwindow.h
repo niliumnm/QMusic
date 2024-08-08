@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "qnamespace.h"
 #include <QMainWindow>
 #include <QMidiIn.h>
 #include <QMap>
@@ -57,6 +58,7 @@ struct Sheet {
     QString name;
     QString author;
     QString title;
+    QString tune;
     int count = 0;
     Node* dummyHead=new Node;
     Node* tail = nullptr;
@@ -72,6 +74,7 @@ struct Sheet {
         count++;
     }
     void deleteHead() {
+        // 删除dummyHead后的第一个
         if (count == 0) return;
         Node* tobeDel = dummyHead->next;
         dummyHead = dummyHead->next;
@@ -135,9 +138,7 @@ private slots:
     void on_connBtn_clicked();
     void on_startBtn_clicked();
     void on_btnHint_clicked();
-
     void on_btnOpenFile_clicked();
-
     void on_btnStartPlay_clicked();
 
 public slots:
@@ -154,6 +155,9 @@ private:
     void initUI();
 
 private:
+    void prevNote(Node *note);
+
+private:
     Ui::MainWindow *ui;
 
 private:
@@ -166,6 +170,7 @@ private:
     QProgressBar* progBar = nullptr;
     QLabel* progLab = nullptr;
     Sheet sheet;
+    QMap<QString,QVector<int>>shift;
 
 protected:
     void closeEvent(QCloseEvent *event) override;

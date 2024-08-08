@@ -11,10 +11,12 @@ CONFIG += c++17
 include(qMidi/QMidi.pri)
 
 SOURCES += \
+    Thread/scorepracticethread.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    Thread/scorepracticethread.h \
     mainwindow.h \
     define/NoteDef.h
 
