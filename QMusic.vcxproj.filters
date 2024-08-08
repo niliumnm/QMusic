@@ -65,8 +65,14 @@
     <ClCompile Include="mainwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Utils\noteshifter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="define\NoteDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="qMidi\QMidiFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -79,6 +85,9 @@
     <QtMoc Include="mainwindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <ClInclude Include="Utils\noteshifter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">
@@ -157,8 +166,158 @@
     <None Include="res\NotePic\7.jpg">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="res\voice\A2.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\A3.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\A4.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\A5.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\A6.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\B2.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\B3.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\B4.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\B5.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\B6.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\C2.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\C3.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\C4.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\C5.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\C6.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\D2.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\D3.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\D4.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\D5.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\D6.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\E2.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\E3.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\E4.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\E5.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\E6.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\F2.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\F3.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\F4.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\F5.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\F6.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\G2.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\G3.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\G4.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\G5.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\voice\G6.wav">
+      <Filter>Resource Files</Filter>
+    </None>
     <QtRcc Include="MusicNote.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+    <None Include="res\voice\Voice.qrc">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TunePic\tune_A.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TunePic\tune_Ab.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TunePic\tune_B.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TunePic\tune_Bb.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TunePic\tune_C#.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TunePic\tune_Cb.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TunePic\tune_D.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TunePic\tune_Db.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TunePic\tune_E.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TunePic\tune_Eb.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TunePic\tune_F#.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TunePic\tune_F.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TunePic\tune_G.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TunePic\tune_Gb.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

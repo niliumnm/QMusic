@@ -11,7 +11,7 @@ public:
 
 public slots:
     void run();
-    void init()
+    void init();
 
 signals:
 };
