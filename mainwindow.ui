@@ -168,7 +168,7 @@
      <widget class="QComboBox" name="tuneComb">
       <property name="minimumSize">
        <size>
-        <width>30</width>
+        <width>80</width>
         <height>0</height>
        </size>
       </property>
