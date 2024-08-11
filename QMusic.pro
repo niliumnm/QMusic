@@ -12,13 +12,13 @@ include(qMidi/QMidi.pri)
 
 SOURCES += \
     Utils/noteshifter.cpp \
-    Thread/scorepracticethread.cpp \
+    Utils/practicethread.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
-    hread/scorepracticethread.h \
     Utils/noteshifter.h \
+    Utils/practicethread.h \
     mainwindow.h \
     define/NoteDef.h
 

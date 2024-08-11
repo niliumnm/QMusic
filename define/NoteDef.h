@@ -1,14 +1,19 @@
-#pragma once
+﻿#pragma once
 #include <QStringList>
 #include <QMap>
+#include <QDebug>
+
 const int perfectTimeDuration = 3;
 static QStringList noteName = {
-    "-4","-5","-6","-7",
     "1","2","3","4","5","6","7",
     "+1","+2","+3","+4","+5","+6","+7",
-    "++1","++2","++3"
 };
-
+//static QStringList noteName = {
+//    "-4","-5","-6","-7",
+//    "1","2","3","4","5","6","7",
+//    "+1","+2","+3","+4","+5","+6","+7",
+//    "++1","++2","++3"
+//};
 
 static QMap<int, QString> NoteMap = {
     {36, "--1"}, {37, "--1#"}, {38, "--2"}, {39, "--2#"}, {40, "--3"}, {41, "--4"}, {42, "--4#"}, {43, "--5"}, {44, "--5#"}, {45, "--6"}, {46, "--6#"}, {47, "--7"},
@@ -39,6 +44,79 @@ static QMap<int,QString> revStaffNoteMap = {
     {60, "C4"}, {61, "C4#"}, {62, "D4"}, {63, "D4#"}, {64, "E4"}, {65, "F4"}, {66, "F4#"}, {67, "G4"}, {68, "G4#"}, {69, "A4"}, {70, "A4#"}, {71, "B4"},
     {72, "C5"}, {73, "C5#"}, {74, "D5"}, {75, "D5#"}, {76, "E5"}, {77, "F5"}, {78, "F5#"}, {79, "G5"}, {80, "G5#"}, {81, "A5"}, {82, "A5#"}, {83, "B5"},
     {84, "C6"}, {85, "C6#"}, {86, "D6"}, {87, "D6#"}, {88, "E6"}, {89, "F6"}, {90, "F6#"}, {91, "G6"}, {92, "G6#"}, {93, "A6"}, {94, "A6#"}, {95, "B6"}
+};
+
+static QMap<QString, QVector<int>> tuneMap = {
+    {QStringLiteral("C#大调|a#小调"), {+1, +1, +1, +1, +1, +1, +1}},
+    {QStringLiteral("F#大调|d#小调"), {+1, +1, +1, +1, +1, +1, 0}},
+    {QStringLiteral("B大调|g#小调"), {+1, +1, 0, +1, +1, +1, 0}},
+    {QStringLiteral("E大调|c#小调"), {+1, +1, 0, +1, +1, 0, 0}},
+    {QStringLiteral("A大调|f#小调"), {+1, 0, 0, +1, +1, 0, 0}},
+    {QStringLiteral("D大调|b小调"), {+1, 0, 0, +1, 0, 0, 0}},
+    {QStringLiteral("G大调|e小调"), {0, 0, 0, +1, 0, 0, 0}},
+    {QStringLiteral("C大调"), {0, 0, 0, 0, 0, 0, 0}},
+    {QStringLiteral("F大调|d小调"), {0, 0, 0, 0, 0, 0, -1}},
+    {QStringLiteral("Bb大调|g小调"), {0, 0, -1, 0, 0, 0, -1}},
+    {QStringLiteral("Eb大调|c小调"), {0, 0, -1, 0, 0, -1, -1}},
+    {QStringLiteral("Ab大调|f小调"), {0, -1, -1, 0, 0, -1, -1}},
+    {QStringLiteral("Db大调|bb小调"), {0, -1, -1, 0, -1, -1, -1}},
+    {QStringLiteral("Gb大调|eb小调"), {-1, -1, -1, 0, -1, -1, -1}},
+    {QStringLiteral("Cb大调|ab小调"), {-1, -1, -1, -1, -1, -1, -1}}
+};
+
+//音符的定义
+struct Node {
+	int value = -1;
+	int duration = -1;
+	Node* next = nullptr;
+	Node() {
+
+	};
+	Node(QString strNote) {
+		if (staffNoteMap.contains(strNote)) {
+			//是五线谱的内容
+			value = staffNoteMap[strNote];
+		}
+		else if (revNoteMap.contains(strNote)) {
+			value = revNoteMap[strNote];
+		}
+		else {
+			qDebug() << "Wrong Note!!!";
+		}
+	}
+	void setDuration(QString time) {
+		duration = time.toInt();
+	}
+
+	// 转成 +1 -1 +7 的形式
+	QString toSimpForm() {
+		if (value < 0) {
+			return "";
+		}
+
+		return NoteMap[value];
+	};
+
+	// 转成 CDEFG
+	QString toSheetForm() {
+		if (value < 0) {
+			return "";
+		}
+
+		return revStaffNoteMap[value];
+	}
+};
+
+struct Sheet {
+	QString name;
+	QString author;
+	QString title;
+	QString tune;
+	QVector<Node*> notes;
+	~Sheet()
+	{
+
+	}
 };
 
 const double Time1D64NoteMs = 15.625;

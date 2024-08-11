@@ -180,7 +180,7 @@ public:
         tuneComb->addItem(QString());
         tuneComb->addItem(QString());
         tuneComb->setObjectName(QString::fromUtf8("tuneComb"));
-        tuneComb->setMinimumSize(QSize(30, 0));
+        tuneComb->setMinimumSize(QSize(80, 0));
 
         gridLayout->addWidget(tuneComb, 2, 1, 1, 1);
 
